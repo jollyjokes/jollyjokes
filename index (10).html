@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Joke Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #222;
+    }
+    select, button {
+      font-size: 1rem;
+      padding: 10px;
+      margin-top: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #jokeBox {
+      margin-top: 2rem;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 1.2rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>😂 Joke Generator</h1>
+  <p>Select a category and get a random joke!</p>
+  <select id="category">
+    <option value="Dad Jokes">Dad Jokes</option>
+    <option value="Puns">Puns</option>
+    <option value="Tech Jokes">Tech Jokes</option>
+    <option value="School Jokes">School Jokes</option>
+    <option value="Animal Jokes">Animal Jokes</option>
+
+  </select>
+  <button onclick="generateJoke()">Tell me a joke</button>
+  <div id="jokeBox">Your joke will appear here.</div>
+
+  <script>
+    const jokes = {
+      "Dad Jokes": ["I'm reading a book on anti-gravity. It's impossible to put down!", "Why don't eggs tell jokes? They'd crack each other up.", "I only know 25 letters of the alphabet. I don't know y.", "I used to play piano by ear, but now I use my hands.", "I'm on a seafood diet. I see food and I eat it."],
+      "Puns": ["Time flies like an arrow. Fruit flies like a banana.", "I wasn't originally going to get a brain transplant, but then I changed my mind.", "The man who survived pepper spray and mustard gas is now a seasoned veteran.", "I used to be a baker, but I couldn't make enough dough.", "A bicycle can't stand on its own because it's two-tired."],
+      "Tech Jokes": ["Why did the computer get cold? It forgot to close its Windows.", "There are 10 types of people in the world: those who understand binary and those who don\u2019t.", "Why was the smartphone acting cold? It lost its sense of touch.", "Why do programmers prefer dark mode? Because the light attracts bugs.", "Why don\u2019t robots have brothers? Because they all share the same motherboard."],
+      "School Jokes": ["Why was the math book sad? It had too many problems.", "Teacher: 'Name two pronouns.' Student: 'Who, me?'", "Why did the student eat his homework? The teacher said it was a piece of cake.", "What\u2019s a math teacher\u2019s favorite place in NYC? Times Square.", "Why was the equal sign so humble? Because it knew it wasn\u2019t less than or greater than anyone else."],
+      "Animal Jokes": ["Why don't cows have feet? Because they lactose.", "What do you call a fish with no eyes? Fsh.", "Why did the cat sit on the computer? To keep an eye on the mouse.", "Why did the chicken go to the s\u00e9ance? To talk to the other side.", "What do you call a pig that does karate? A pork chop."],
+
+    };
+
+    function generateJoke() {
+      const category = document.getElementById('category').value;
+      const categoryJokes = jokes[category];
+      const randomJoke = categoryJokes[Math.floor(Math.random() * categoryJokes.length)];
+      document.getElementById('jokeBox').innerText = randomJoke;
+    }
+  </script>
+</body>
+</html>
